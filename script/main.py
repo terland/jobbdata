@@ -9,9 +9,14 @@ headers = {'authorization': 'Bearer ' + bearercode}
 endpoint = 'https://arbeidsplassen.nav.no/public-feed/api/v1/ads'
 data = {}
 
-r = requests.get(endpoint,data = data,headers = headers)
-data = r.json()
+def get_jobs(data = {}):
+    r = requests.get(endpoint,data = data,headers = headers)
+    return(r.json())
+
+
+data = get_jobs()
 data = data['content'][0]
+
 pretty = json.dumps(data, indent=4, sort_keys=True)
 
 with open('files/description.html', 'a') as f:
