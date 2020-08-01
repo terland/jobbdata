@@ -10,7 +10,7 @@ endpoint = 'https://arbeidsplassen.nav.no/public-feed/api/v1/ads'
 data = {}
 
 def get_jobs(data = {}):
-    r = requests.get(endpoint,data = data,headers = headers)
+    r = requests.get(endpoint,params = data,headers = headers)
     return(r.json())
 
 
